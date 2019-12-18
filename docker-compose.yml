@@ -36,3 +36,10 @@ services:
     env_file:
       -./.mariadb.env
     restart: always
+ 
+ volumes:
+  osticket-data:
+  mariadb-data:
+
+ 
+    
