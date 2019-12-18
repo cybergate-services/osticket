@@ -2,19 +2,27 @@ version: '2'
 
 services:
 
+  letsencrypt:
+    image: cybergatelabs/letsencrypt
+    restart: unless-stopped
+    container_name: letsencrypt
+    hostname: letsencrypt
+    ports:
+      - 80:80
+      - 443:443
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./data/letsencrypt/config:/config
+    env_file: 
+      - ./.letsencrypt.env
+
   osticket:
     image: osticket/osticket
-    environment:
-      - MYSQL_HOST=mysql
-      - MYSQL_DATABASE=osticket
-      - MYSQL_USER=osticket
-      - MYSQL_PASSWORD=0T1cket
-    
-      # CHANGE ME
-      - INSTALL_SECRET=secret
-        
-      - LANGUAGE=fa
-
+    container_name: osticket
+    hostname: osticket
+    env_file: 
+      - ./.osticket.env
     links:
       - mysql:mysql
     ports:
@@ -23,9 +31,8 @@ services:
 
   mysql:
     image: mariadb
-    environment:
-       - MYSQL_RANDOM_ROOT_PASSWORD=true
-       - MYSQL_DATABASE=osticket
-       - MYSQL_USER=osticket
-       - MYSQL_PASSWORD=0T1cket
+    container_name: osticket
+    hostname: osticket
+    env_file:
+      -./.mariadb.env
     restart: always
