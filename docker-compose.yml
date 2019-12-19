@@ -35,6 +35,8 @@ services:
     hostname: osticket
     env_file:
       -./.mariadb.env
+    volumes:
+     - mariadb-data:/var/lib/mysql
     restart: always
  
  volumes:
