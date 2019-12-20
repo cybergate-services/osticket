@@ -34,7 +34,7 @@ services:
     container_name: osticket
     hostname: osticket
     env_file:
-      -./.mariadb.env
+      - ./.mariadb.env
     volumes:
      - mariadb-data:/var/lib/mysql
     restart: always
