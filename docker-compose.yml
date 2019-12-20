@@ -39,7 +39,7 @@ services:
      - mariadb-data:/var/lib/mysql
     restart: always
  
- volumes:
+volumes:
   osticket-data:
   mariadb-data:
 
