@@ -31,8 +31,8 @@ services:
 
   mysql:
     image: mariadb
-    container_name: osticket
-    hostname: osticket
+    container_name: mariadb
+    hostname: mariadb
     env_file:
       - ./.mariadb.env
     volumes:
