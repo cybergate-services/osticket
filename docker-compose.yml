@@ -18,11 +18,14 @@ services:
       - ./.letsencrypt.env
 
   osticket:
-    image: osticket/osticket
+    image: campbellsoftwaresolutions/osticket
     container_name: osticket
     hostname: osticket
     env_file: 
       - ./.osticket.env
+    volumes:
+      - ./data/osticket/plugins:/data/upload/include/plugins
+      - ./data/osticket/nginx/log:/var/log/nginx
     links:
       - mysql:mysql
     #ports:
