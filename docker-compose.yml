@@ -27,12 +27,12 @@ services:
       - ./data/osticket/plugins:/data/upload/include/plugins
       - ./data/osticket/nginx/log:/var/log/nginx
     links:
-      - mariadb
+      - mysql
     #ports:
     #  - "5335:80"
     restart: always
 
-  mariadb:
+  mysql:
     image: mariadb
     container_name: mariadb
     hostname: mariadb
