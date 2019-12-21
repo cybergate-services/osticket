@@ -34,7 +34,7 @@ services:
 
   mysql_db:
     image: mysql:5
-    container_name: mysql_db
+    container_name: mysql
     #hostname: mysql
     env_file:
       - ./.mariadb.env
