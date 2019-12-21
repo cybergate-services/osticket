@@ -26,16 +26,16 @@ services:
     volumes:
       - ./data/osticket/plugins:/data/upload/include/plugins
       - ./data/osticket/nginx/log:/var/log/nginx
-    links:
+    depends_on:
       - mysql
     ports:
       - "8080:80"
     restart: always
 
   mysql:
-    image: mysql:5
-    container_name: mysql
-    hostname: mysql
+    image: mariadb  
+    container_name: mariadb 
+    hostname: mariadb
     env_file:
       - ./.mariadb.env
     volumes:
