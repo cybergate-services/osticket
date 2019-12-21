@@ -20,7 +20,7 @@ services:
   osticket:
     image: campbellsoftwaresolutions/osticket
     container_name: osticket
-    hostname: osticket
+    #hostname: osticket
     env_file: 
       - ./.osticket.env
     volumes:
@@ -35,7 +35,7 @@ services:
   mysql:
     image: mariadb
     container_name: mysql
-    hostname: mysql
+    #hostname: mysql
     env_file:
       - ./.mariadb.env
     volumes:
