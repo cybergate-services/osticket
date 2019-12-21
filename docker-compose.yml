@@ -20,22 +20,22 @@ services:
   osticket:
     image: campbellsoftwaresolutions/osticket
     container_name: osticket
-    #hostname: osticket
+    hostname: osticket
     env_file: 
       - ./.osticket.env
     volumes:
       - ./data/osticket/plugins:/data/upload/include/plugins
       - ./data/osticket/nginx/log:/var/log/nginx
     links:
-      - mysql_db:mysql
+      - mariadb:mariadb
     #ports:
     #  - "5335:80"
     restart: always
 
-  mysql_db:
-    image: mysql:5
-    container_name: mysql
-    #hostname: mysql
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    hostname: mariadb
     env_file:
       - ./.mariadb.env
     volumes:
