@@ -32,7 +32,7 @@ services:
     #  - "5335:80"
     restart: always
 
-  mysql:
+  mysql_db:
     image: mysql:5
     container_name: mysql_db
     #hostname: mysql
