@@ -27,14 +27,14 @@ services:
       - ./data/osticket/plugins:/data/upload/include/plugins
       - ./data/osticket/nginx/log:/var/log/nginx
     links:
-      - mysql:mysql
+      - mysql_db:mysql
     #ports:
     #  - "5335:80"
     restart: always
 
   mysql:
-    image: mariadb
-    container_name: mysql
+    image: mysql:5
+    container_name: mysql_db
     #hostname: mysql
     env_file:
       - ./.mariadb.env
